@@ -1342,3 +1342,37 @@ Caused by: java.lang.Exception: File not found: D:\Spring\10-spring-jpa-mapping-
 2025-09-20 22:54:49,980 [Worker-12: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.aurionpro:CRUDEmployeeRESTAPP2:0.0.1-SNAPSHOT @ D:\Spring\12-CRUD Employee REST APP 4\pom.xml.
 2025-09-20 22:54:52,377 [Worker-15: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.aurionpro:CRUDEmployeeRESTAPP2:0.0.1-SNAPSHOT @ D:\Spring\12-CRUD Employee REST APP 4\pom.xml.
 2025-09-20 22:54:58,574 [Worker-1: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.aurionpro:Mapping1-to-1Example2:0.0.1-SNAPSHOT @ D:\Spring\18-Mapping 1-to-1 Example 4\pom.xml.
+2025-09-21 00:05:15,569 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-09-21 00:05:54,542 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.aurionpro:Mapping1-to-1Example2:0.0.1-SNAPSHOT @ D:\Spring\22-Mapping 1-to-1 with Security\pom.xml.
+2025-09-21 00:05:55,772 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-test/6.5.3/spring-security-test-6.5.3.pom
+2025-09-21 00:05:55,827 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-test/6.5.3/spring-security-test-6.5.3.pom
+2025-09-21 00:05:56,346 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-test/6.5.3/spring-security-test-6.5.3.jar
+2025-09-21 00:05:56,407 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-test/6.5.3/spring-security-test-6.5.3.jar
+2025-09-21 00:05:57,222 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /22-Mapping 1-to-1 with Security/src/main/java
+2025-09-21 00:05:57,225 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /22-Mapping 1-to-1 with Security/src/main/resources
+2025-09-21 00:05:57,227 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /22-Mapping 1-to-1 with Security/src/main/resources
+2025-09-21 00:05:57,228 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /22-Mapping 1-to-1 with Security/src/test/java
+2025-09-21 00:05:57,229 [Worker-4: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /22-Mapping 1-to-1 with Security/src/test/resources
+2025-09-21 00:05:57,731 [Worker-4: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 5 sec
+2025-09-21 00:05:57,973 [Worker-12: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-test/6.5.3/spring-security-test-6.5.3-sources.jar
+2025-09-21 00:05:58,162 [Worker-12: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-test/6.5.3/spring-security-test-6.5.3-sources.jar
+2025-09-21 00:05:58,174 [Worker-12: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework.security:spring-security-test:6.5.3
+2025-09-21 00:06:00,321 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-09-21 00:06:00,344 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-21 00:06:00,348 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Spring\22-Mapping 1-to-1 with Security\src\test\resources
+2025-09-21 00:06:11,924 [Worker-12: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.aurionpro:Mapping1-to-1Example2:0.0.1-SNAPSHOT @ D:\Spring\18-Mapping 1-to-1 Example 5\pom.xml.
+2025-09-21 00:06:13,691 [Worker-12: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /18-Mapping 1-to-1 Example 5/src/main/java
+2025-09-21 00:06:13,692 [Worker-12: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /18-Mapping 1-to-1 Example 5/src/main/resources
+2025-09-21 00:06:13,694 [Worker-12: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /18-Mapping 1-to-1 Example 5/src/main/resources
+2025-09-21 00:06:13,694 [Worker-12: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /18-Mapping 1-to-1 Example 5/src/test/java
+2025-09-21 00:06:13,695 [Worker-12: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /18-Mapping 1-to-1 Example 5/src/test/resources
+2025-09-21 00:06:14,192 [Worker-12: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 3 sec
+2025-09-21 00:06:15,305 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-09-21 00:06:15,324 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-21 00:06:15,328 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Spring\18-Mapping 1-to-1 Example 5\src\test\resources
+2025-09-21 00:07:41,265 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-09-21 00:07:41,282 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-21 00:07:41,286 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Spring\18-Mapping 1-to-1 Example 5\src\test\resources
+2025-09-21 00:08:04,418 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-09-21 00:08:04,433 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-21 00:08:04,439 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Spring\22-Mapping 1-to-1 with Security\src\test\resources

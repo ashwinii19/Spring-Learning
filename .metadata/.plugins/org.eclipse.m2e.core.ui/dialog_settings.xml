@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\Spring\18-Mapping 1-to-1 Example 5"/>
+			<item value="D:\Spring\22-Mapping 1-to-1 with Security"/>
 			<item value="D:\Spring"/>
 			<item value="D:\Spring\22-springsecurity"/>
 			<item value="D:\Spring\20-spring-jpa-many-to-many-mapping"/>

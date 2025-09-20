@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=D\:\\Spring\\22-springsecurity\\.git;D\:\\Spring\\22-Spring_Security_JWT\\.git;
-GitRepositoriesView.GitDirectories.relative=22-springsecurity\\.git;22-Spring_Security_JWT\\.git;
+GitRepositoriesView.GitDirectories=D\:\\Spring\\22-springsecurity\\.git;D\:\\Spring\\.git;D\:\\Spring\\22-Spring_Security_JWT\\.git;
+GitRepositoriesView.GitDirectories.relative=22-springsecurity\\.git;.git;22-Spring_Security_JWT\\.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
