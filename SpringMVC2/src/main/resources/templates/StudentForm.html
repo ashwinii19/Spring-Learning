@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	
+	<title>Student Form</title>
+</head>
+
+<body>
+	
+	<h2>Student Form</h2>
+	<form th:action="@{/processStudentForm}" th:object="${student}" method="post">
+		<label>First Name:</label>
+		<input type="text" th:field="*{firstName}"/>
+		
+		<br><br>
+		
+		<label>Last Name:</label>
+		<input type="text" th:field="*{lastName}"/>
+		
+		<br><br>
+		
+		<label>Country:</label>
+	<select name="country" th:field="*{country}">
+	<!--   <option value="India">India</option>
+			<option value="Brazil">Brazil</option>
+			<option value="USA">USA</option>  -->
+			
+	<option th:each="tempCountry:${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+				
+		</select>
+		
+		<br><br>
+		
+		<label>Language:</label>
+	<!--<input type="radio" th:field="*{language}" th:value="Go" th:text="Go"/>
+		<input type="radio" th:field="*{language}" th:value="Java" th:text="Java" />
+		<input type="radio" th:field="*{language}" th:value="Python" th:text="Python"/> -->	
+		
+		<input th:each="tempLanguage:${languages}" type="radio" th:field="*{language}" th:value="${tempLanguage}" th:text="${tempLanguage}"/>
+		
+		<br><br>
+		
+		<label>Subjects:</label>
+	<!--	<input type="checkbox" th:field="*{subjects}" th:value="'Operating System'" th:text="'Operating System'" />
+		<input type="checkbox" th:field="*{subjects}" th:value="'Data Structures'" th:text="'Data Structures'" />
+		<input type="checkbox" th:field="*{subjects}" th:value="'Machine Learnings'" th:text="'Machine Learnings'"/> -->	
+		
+		<input th:each="tempSubjects:${subjects}" type="checkbox" th:field="*{subjects}" th:value="${tempSubjects}" th:text="${tempSubjects}"/>
+		
+		<br><br>
+		<input type="submit" value="Submit"/>
+		
+		
+	</form>
+	
+	
+</body>
+
+</html>

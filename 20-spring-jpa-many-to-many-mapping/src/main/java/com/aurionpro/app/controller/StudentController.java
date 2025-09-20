@@ -1,0 +1,76 @@
+package com.aurionpro.app.controller;
+
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.aurionpro.app.dto.StudentCreateRequest;
+import com.aurionpro.app.dto.StudentResponse;
+import com.aurionpro.app.dto.StudentUpdateRequest;
+import com.aurionpro.app.service.StudentService;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@RestController
+@RequestMapping("/api/students")
+@RequiredArgsConstructor
+@Slf4j
+public class StudentController {
+	private final StudentService studentService;
+
+	@PostMapping
+	public ResponseEntity<StudentResponse> create(@Valid @RequestBody StudentCreateRequest req) {
+		log.debug("Create student: {}", req);
+		return ResponseEntity.ok(studentService.create(req));
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<StudentResponse> get(@PathVariable Long id) {
+		return ResponseEntity.ok(studentService.get(id));
+	}
+
+	@GetMapping
+	public ResponseEntity<Page<StudentResponse>> list(@ParameterObject Pageable pageable) {
+		return ResponseEntity.ok(studentService.list(pageable));
+	}
+
+	@PostMapping("/{studentId}/courses/{courseId}")
+	public ResponseEntity<StudentResponse> enroll(@PathVariable Long studentId, @PathVariable Long courseId) {
+		return ResponseEntity.ok(studentService.enroll(studentId, courseId));
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<StudentResponse> update(
+	        @PathVariable Long id,
+	        @RequestBody StudentUpdateRequest req
+	) {
+	    return ResponseEntity.ok(studentService.update(id, req));
+	}
+
+
+	@DeleteMapping("/{studentId}/courses/{courseId}")
+	public ResponseEntity<StudentResponse> unenroll(@PathVariable Long studentId, @PathVariable Long courseId) {
+		return ResponseEntity.ok(studentService.unenroll(studentId, courseId));
+	}
+	
+
+	@DeleteMapping("/{studentId}")
+	public ResponseEntity<Void> deleteById(@PathVariable Long studentId) {
+	    studentService.deleteById(studentId); // call to service layer
+	    return ResponseEntity.noContent().build(); // 204 No Content is standard for DELETE
+	}
+
+	
+	
+}

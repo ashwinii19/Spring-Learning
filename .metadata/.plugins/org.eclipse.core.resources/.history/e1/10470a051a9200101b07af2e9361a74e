@@ -1,0 +1,73 @@
+package com.aurionpro.app.entity;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "employees")
+public class Employee {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(nullable = false)
+	private String fullName;
+
+	@Column(precision = 12, scale = 2)
+	private BigDecimal salary;
+
+	@Column(nullable = false)
+	private LocalDate doj; 
+
+	// Owning side
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "department_id", nullable = false)
+	private Department department;
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public BigDecimal getSalary() {
+		return salary;
+	}
+
+	public void setSalary(BigDecimal salary) {
+		this.salary = salary;
+	}
+
+	public LocalDate getDoj() {
+		return doj;
+	}
+
+	public void setDoj(LocalDate doj) {
+		this.doj = doj;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+}

@@ -1,0 +1,25 @@
+package com.aurionpro.app.service;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.aurionpro.app.dto.StudentCreateRequest;
+import com.aurionpro.app.dto.StudentResponse;
+import com.aurionpro.app.dto.StudentUpdateRequest;
+
+public interface StudentService {
+	StudentResponse create(StudentCreateRequest req);
+
+	StudentResponse get(Long id);
+
+	Page<StudentResponse> list(Pageable pageable);
+	
+	StudentResponse update(Long id, StudentUpdateRequest req);
+
+	StudentResponse enroll(Long studentId, Long courseId);
+
+	StudentResponse unenroll(Long studentId, Long courseId);
+
+	void deleteById(Long studentId);
+	
+}

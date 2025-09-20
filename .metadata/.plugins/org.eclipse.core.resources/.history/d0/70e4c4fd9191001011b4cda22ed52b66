@@ -1,0 +1,11 @@
+spring.application.name=Mapping1-to-1Example2
+
+spring.datasource.url=jdbc:mysql://localhost:3306/employee_passport_db2?createDatabaseIfNotExist=true&useSSL=false&serverTimeZone=UTC
+spring.datasource.username=root
+spring.datasource.password=Pramod@183
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+logging.level.org.hibernate.SQL=debug
+logging.level.org.hibernate.orm.jdbc.bind=trace

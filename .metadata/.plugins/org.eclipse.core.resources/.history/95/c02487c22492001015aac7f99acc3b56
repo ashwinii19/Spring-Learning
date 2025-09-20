@@ -1,0 +1,92 @@
+package com.aurionpro.app.service;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.aurionpro.app.dto.StudentCreateRequest;
+import com.aurionpro.app.dto.StudentResponse;
+import com.aurionpro.app.dto.StudentUpdateRequest;
+import com.aurionpro.app.entity.Course;
+import com.aurionpro.app.entity.Student;
+import com.aurionpro.app.exception.NotFoundException;
+import com.aurionpro.app.repository.CourseRepository;
+import com.aurionpro.app.repository.StudentRepository;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class StudentServiceImpl implements StudentService {
+	private final StudentRepository studentRepo;
+	private final CourseRepository courseRepo;
+	private final ModelMapper mm;
+
+	@Override
+	@Transactional
+	public StudentResponse create(StudentCreateRequest req) {
+		Student s = Student.builder().name(req.getName()).dob(req.getDob()).build();
+		s = studentRepo.save(s);
+		log.info("Created student id={}", s.getId());
+		return mm.map(s, StudentResponse.class);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public StudentResponse get(Long id) {
+		Student s = studentRepo.findById(id).orElseThrow(() -> new NotFoundException("Student not found: " + id));
+		return mm.map(s, StudentResponse.class);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Page<StudentResponse> list(Pageable pageable) {
+		return studentRepo.findAll(pageable).map(s -> mm.map(s, StudentResponse.class));
+	}
+
+	@Override
+	@Transactional
+	public StudentResponse update(Long id, StudentUpdateRequest req) {
+		Student s = studentRepo.findById(id).orElseThrow(() -> new NotFoundException("Student not found: " + id));
+
+		// Apply only non-null fields
+		mm.map(req, s);
+
+		log.info("Updated (patched) student id={}", s.getId());
+		return mm.map(s, StudentResponse.class);
+	}
+
+	@Override
+	@Transactional
+	public StudentResponse enroll(Long studentId, Long courseId) {
+		Student s = studentRepo.findById(studentId)
+				.orElseThrow(() -> new NotFoundException("Student not found: " + studentId));
+		Course c = courseRepo.findById(courseId)
+				.orElseThrow(() -> new NotFoundException("Course not found: " + courseId));
+
+		s.addCourse(c);
+		studentRepo.save(s);
+
+		log.info("Enrolled student {} -> course {}", studentId, courseId);
+		return mm.map(s, StudentResponse.class);
+	}
+
+	@Override
+	@Transactional
+	public StudentResponse unenroll(Long studentId, Long courseId) {
+		Student s = studentRepo.findById(studentId)
+				.orElseThrow(() -> new NotFoundException("Student not found: " + studentId));
+		Course c = courseRepo.findById(courseId)
+				.orElseThrow(() -> new NotFoundException("Course not found: " + courseId));
+
+		s.removeCourse(c);
+		studentRepo.save(s);
+
+		log.info("Unenrolled student {} -/-> course {}", studentId, courseId);
+		return mm.map(s, StudentResponse.class);
+	}
+}

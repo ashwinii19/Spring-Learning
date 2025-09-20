@@ -1,0 +1,100 @@
+package com.aurionpro.SpringBoot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.aurionpro.SpringBoot.DAO.StudentDAO;
+import com.aurionpro.SpringBoot.Entity.Student;
+
+@SpringBootApplication
+public class SpringJpaHibernateDemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringJpaHibernateDemoApplication.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
+
+		return runner -> {
+			createStudent(studentDAO);
+//			findStudent(studentDAO);
+//			 multipleStudentSave(studentDAO);
+//			deleteStudent(studentDAO);
+			getAllStudents(studentDAO);
+//			getAllStudentsByFirstName(studentDAO);
+		//getAllStudentsByLastName("sunil", studentDAO);
+//			updateStudent(studentDAO);
+			
+//			deleteByLastName(studentDAO);
+		};
+	}
+
+	private void deleteByLastName(StudentDAO studentDAO) {
+		studentDAO.deleteByLastName("sunil");
+		getAllStudents(studentDAO);
+		
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int id=2;
+		Student stu=studentDAO.updateFirstName("Ashwini",id);
+		System.out.println(stu);
+	}
+
+	private void getAllStudentsByLastName(String lastName, StudentDAO studentDAO) {
+
+		List<Student> list = studentDAO.searchByLastName(lastName);
+
+		System.out.println(list);
+	}
+
+	private void getAllStudentsByFirstName(StudentDAO studentDAO) {
+		List<Student> list = studentDAO.searchByFirstName();
+
+		System.out.println(list);
+
+	}
+
+	private void getAllStudents(StudentDAO studentDAO) {
+		List<Student> list = studentDAO.getAllStudents();
+		System.out.println(list);
+
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int id = 1;
+		studentDAO.deleteStudent(id);
+
+	}
+
+	private void multipleStudentSave(StudentDAO studentDAO) {
+		List<Student> list = new ArrayList<>();
+
+		list.add(new Student("samd", "kasu", "samadkasu@gmail.com"));
+		list.add(new Student("sahil", "sunil", "sahilsunil@gmail.com"));
+		studentDAO.saveMultiple(list);
+
+	}
+
+	private void createStudent(StudentDAO studentDAO) {
+		System.out.println("Saving new Student");
+		Student student1 = new Student("Ashwini", "Dagale", "ash@gmail.com");
+		studentDAO.save(student1);
+
+	}
+
+	private void findStudent(StudentDAO studentDAO) {
+		int id = 1;
+		System.out.println("Found Student with id:" + id);
+		Student student1 = studentDAO.findStudent(id);
+		System.out.println(student1);
+
+	}
+
+}

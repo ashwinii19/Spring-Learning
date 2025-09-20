@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+    <title>Student Form</title>
+</head>
+<body>
+    
+	<form th:action="@{/processStudentForm}" th:object="${student}" method="post">
+		
+		First Name:<input type="text" th:field="${student.firstName}"/>
+		
+		<span th:if="${#fields.hasErrors('firstName')}"
+						th:errors="*{firstName}"
+						class="error"></span>
+		<br><br>
+		
+		Last Name:<input type="text" th:field="*{lastName}"/>
+		
+		
+		<br><br>
+		
+		Country:
+	<!--	<select name="country" th:field="*{country}">
+			<option value="Brazil">Brazil</option>
+			<option value="India">India</option>
+			<option value="Germany">Germany</option>
+			<option value="USA">USA</option>
+			
+		</select> -->
+		
+		<select name="country" th:field="*{country}">
+			<option  th:each="tempCountry:${countries}" th:value="${tempCountry}" th:text="${tempCountry}" />
+			
+			
+			
+		</select>
+		
+		<br><br>
+		
+	<!--<input type="radio" th:field="*{language}" th:value="Go">Go</input>
+		<input type="radio" th:field="*{language}" th:value="Java">Java</input>
+		<input type="radio" th:field="*{language}" th:value="Pyhton">Python</input> -->	
+		
+		<input th:each="tempLanguage:${languages}" th:field="*{language}" type="radio" th:value="${tempLanguage}" th:text="${tempLanguage}" />
+		<br><br>
+		
+	<!-- <input type="checkbox" th:field="*{operatingSystem}" th:value="window" th:text="window"/>
+		<input type="checkbox" th:field="*{operatingSystem}" th:value="Linux" th:text="Linux"/>
+		<input type="checkbox" th:field="*{operatingSystem}" th:value="Android" th:text="Android"/> -->
+		
+		
+		<input th:each="tempOperatingSystem:${operatingSystem}" th:field="*{operatingSystem}" type="checkbox" th:value="${tempOperatingSystem}" th:text="${tempOperatingSystem}" />
+		
+		<br><br>
+		<input type="submit" value="submit"/>
+		
+	</form>
+</body>
+</html>

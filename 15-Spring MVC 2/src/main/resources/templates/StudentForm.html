@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="/CSS/style.css"/>
+	
+	<title>Student Form</title>
+</head>
+
+<body>
+	
+	<h2>Student Form</h2>
+	<form th:action="@{/processStudentForm}" th:object="${student}" method="post">
+		<label>First Name:</label>
+		<input type="text" th:field="*{firstName}"/>
+		
+		<span th:if="${#fields.hasErrors('firstName')}"
+			  th:errors="*{firstName}"
+			  class="error"></span>
+		
+		<br><br>
+		
+		<label>Last Name:</label>
+		<input type="text" th:field="*{lastName}"/>
+		
+		
+		<span th:if="${#fields.hasErrors('lastName')}"
+					  th:errors="*{lastName}"
+					  class="error"></span>
+		
+		<br><br>
+		
+		<label>Free Passes:</label>
+		<input type="text" th:field="*{freePasses}"/>
+		
+		<span th:if="${#fields.hasErrors('freePasses')}"
+			  th:errors="*{freePasses}" class="error"></span>
+				
+		<br><br>
+		
+		<label>Postal Code:</label>
+		<input type="text" th:field="*{postalCode}"/>
+				
+		<span th:if="${#fields.hasErrors('postalCode')}"
+			th:errors="*{postalCode}" class="error"></span>
+						
+		<br><br>
+				
+				
+		
+		<label>Country:</label>
+	<select name="country" th:field="*{country}">
+	<!--   <option value="India">India</option>
+			<option value="Brazil">Brazil</option>
+			<option value="USA">USA</option>  -->
+			
+	<option th:each="tempCountry:${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+				
+		</select>
+		<span th:if="${#fields.hasErrors('country')}"
+							  th:errors="*{country}"
+							  class="error"></span>
+		
+		<br><br>
+		
+		<label>Language:</label>
+	<!--<input type="radio" th:field="*{language}" th:value="Go" th:text="Go"/>
+		<input type="radio" th:field="*{language}" th:value="Java" th:text="Java" />
+		<input type="radio" th:field="*{language}" th:value="Python" th:text="Python"/> -->	
+		
+		<input th:each="tempLanguage:${languages}" type="radio" th:field="*{language}" th:value="${tempLanguage}" th:text="${tempLanguage}"/>
+		
+		<span th:if="${#fields.hasErrors('language')}"
+							  th:errors="*{language}"
+							  class="error"></span>
+		
+		<br><br>
+		
+		<label>Subjects:</label>
+	<!--	<input type="checkbox" th:field="*{subjects}" th:value="'Operating System'" th:text="'Operating System'" />
+		<input type="checkbox" th:field="*{subjects}" th:value="'Data Structures'" th:text="'Data Structures'" />
+		<input type="checkbox" th:field="*{subjects}" th:value="'Machine Learnings'" th:text="'Machine Learnings'"/> -->	
+		
+		<input th:each="tempSubjects:${subjects}" type="checkbox" th:field="*{subjects}" th:value="${tempSubjects}" th:text="${tempSubjects}"/>
+		
+		<span th:if="${#fields.hasErrors('subjects')}"
+							  th:errors="*{subjects}"
+							  class="error"></span>
+		
+		<br><br>
+		<input type="submit" value="Submit"/>
+		
+		
+	</form>
+	
+	
+</body>
+
+</html>

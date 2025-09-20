@@ -1,0 +1,22 @@
+package com.aurionpro.app.dto;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
+public class EnrollmentRequest {
+	@NotNull
+	private Long studentId;
+	@NotNull
+	private Long courseId;
+}
